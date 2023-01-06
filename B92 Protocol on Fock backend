@@ -1,0 +1,144 @@
+import numpy as np
+from numpy.linalg import multi_dot
+from scipy.linalg import block_diag
+import random
+import matplotlib.pyplot as plt
+import strawberryfields as sf
+from strawberryfields.ops import *
+
+
+binary1 = []
+binary = []
+one = 0
+zero = 1
+# set the random seed
+np.random.seed(42)
+ 
+list= [1,2,3,4]
+list_a = random.sample(list , 2)
+list_b = random.sample(list , 2)
+a1 = list_a[0]
+a2 = list_a[1]
+b1 = list_b[0]
+b2 = list_b[1]
+print(a1,a2,b1,b2)
+for _ in range(100):
+
+    
+    prog = sf.Program(8)
+    eng = sf.Engine("fock", backend_options={"cutoff_dim": 2}) 
+    
+    with prog.context as q:
+        Fock(1) |q[0]
+        Fock(0) |q[1]
+        Fock(1) |q[2]
+        Fock(0) |q[3]
+        Fock(1) |q[4]
+        Fock(0) |q[5]
+        Fock(1) |q[6]
+        Fock(0) |q[7]
+
+
+        if a1 == 1:
+            BSgate() | (q[0], q[1])
+
+        if a1 == 2:
+            BSgate() | (q[2], q[3])
+
+        if a1 == 3:
+            BSgate() | (q[4], q[5])
+
+        if a1 == 4:
+            BSgate() | (q[6], q[7])
+
+
+        if a2 == 1:
+            BSgate() | (q[0], q[1])
+
+        if a2 == 2:
+            BSgate() | (q[2], q[3])
+
+        if a2 == 3:
+            BSgate() | (q[4], q[5])
+
+        if a2 == 4:
+            BSgate() | (q[6], q[7])
+
+
+
+
+
+        if b1 == 1:
+            BSgate() | (q[0], q[1])
+
+        if b1 == 2:
+            BSgate() | (q[2], q[3])
+
+        if b1 == 3:
+            BSgate() | (q[4], q[5])
+
+        if b1 == 4:
+            BSgate() | (q[6], q[7])
+
+
+        if b2 == 1:
+            BSgate() | (q[0], q[1])
+
+        if b2 == 2:
+            BSgate() | (q[2], q[3])
+
+        if b2 == 3:
+            BSgate() | (q[4], q[5])
+
+        if b2 == 4:
+            BSgate() | (q[6], q[7])
+
+
+        MeasureFock() | q[0]      
+        MeasureFock() | q[1]
+        MeasureFock() | q[2]
+        MeasureFock() | q[3]      
+        MeasureFock() | q[4]
+        MeasureFock() | q[5]
+        MeasureFock() | q[6]      
+        MeasureFock() | q[7]
+        
+
+    results = eng.run(prog)    
+
+    n1 = results.samples.item(0)
+    n2 = results.samples.item(1)
+    n3 = results.samples.item(2)
+    n4 = results.samples.item(3)
+    n5 = results.samples.item(4)
+    n6 = results.samples.item(5)
+    n7 = results.samples.item(6)
+    n8 = results.samples.item(7)
+    
+    
+    if n1 == 0 and n2 == 1:
+        binary.append(zero)
+    if n1 == 1 and n2 == 0:
+        binary.append(one)
+    if n3 == 0 and n4 == 1:
+        binary.append(zero)
+    if n3 == 1 and n4 == 0:
+        binary.append(one)
+    if n5 == 0 and n6 == 1:
+        binary.append(zero)
+    if n5 == 1 and n6 == 0:
+        binary.append(one)
+    if n7 == 0 and n8 == 1:
+        binary.append(zero)
+    if n7 == 1 and n8 == 0:
+        binary.append(one)
+
+print(binary)
+
+start = 0
+end = len(binary)
+step = 4
+for i in range(start, end, step):
+    y = i
+    print(binary[y:y+step])
+   

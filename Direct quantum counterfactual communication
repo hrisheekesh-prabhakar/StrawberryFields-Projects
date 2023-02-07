@@ -1,0 +1,175 @@
+import numpy as np
+import random
+
+# set the random seed
+np.random.seed(42)
+
+lista = []
+listb = []
+listc = []
+
+
+import strawberryfields as sf
+from strawberryfields.ops import *
+x = int(10000)
+list1 = [1,2]
+
+for _ in range(x):
+    num1 = random.sample(list1, 1)
+
+    a=num1[0]
+    prog = sf.Program(3)
+    eng = sf.Engine("fock", backend_options={"cutoff_dim": 2})
+
+    with prog.context as q:
+        Fock(1) | q[2]
+        Fock(0) | q[0]
+        Fock(0) | q[1]
+        
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])  
+
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])  
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]         
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])  
+
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])  
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1]) 
+        if a==1:
+            MeasureFock() | q[1]
+        BSgate(np.pi/40,0)  | (q[0],q[1])
+        MeasureFock() | q[0]      
+        MeasureFock() | q[1]
+        MeasureFock() | q[2]
+
+    results = eng.run(prog)    
+    print(results.samples)
+
+    x = results.samples.item(0)
+    lista.append(x)
+    
+    y = results.samples.item(1)
+    listb.append(y)
+    z = results.samples.item(2)
+    listc.append(z)    
+
+
+
+q= sum(lista)
+r=sum(listb)
+s=sum(listc)
+t = 10000-q-r-s
+
+
+import matplotlib.pyplot as plt
+dict = {'d1':q , 'd2':r, 'd3':s , 'none':t}
+plt.bar((dict.keys()), dict.values(), color='g')
+plt.show()

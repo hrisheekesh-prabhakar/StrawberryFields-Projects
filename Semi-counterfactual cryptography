@@ -6,7 +6,6 @@ np.random.seed(42)
 
 lista= []
 listb = []
-listc = []
 
 import strawberryfields as sf
 from strawberryfields.ops import *

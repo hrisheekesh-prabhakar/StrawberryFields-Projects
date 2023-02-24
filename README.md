@@ -1,3 +1,6 @@
+The counterfactual certificate authorization protocol involves three parties Alice(authorizer), Bob(Bank) and charlie(client). The setup involves a Michelson interferometer setup where the photon from each arm is sent to Bob and Charlie. Once all parties are online, Alice sends a sequence of single photons, the other two parties block their arm with a probability P(block)=0.5 and the statistics are compared to the theoretical values for authentication. The values obtained in detector D_1 are used to form a secure key between both parties
+
 The semi-counterfactual cryptography scheme is similar to that of the CQCA scheme, with the stations of Alice and Charlie being used by Alice. Here the switches in both stations are operated independently.
 The counterfactual nature of the protocol comes from the sharing of the secret bit code 1, where the information is shared due to a measurement that did not scatter the particle, the non-counterfactual nature of the scheme arises from the sharing of bit 0 where the photon travels in the exposed arm and is only counterfactual for Alice thus being semi-counterfactual.
 The statistics of the scheme are the same as that of CQCA, and the efficiency is 1/8.
+
